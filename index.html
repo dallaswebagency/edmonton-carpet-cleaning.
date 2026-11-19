@@ -138,7 +138,12 @@ nav.main a[aria-current]{color:var(--red)}
 /* equipment */
 .gear{padding:clamp(60px,8vw,110px) 0;background:var(--paper);border-bottom:1px solid var(--line)}
 .gear .lead{font:700 clamp(24px,2.6vw,34px)/1.1 var(--hand);color:var(--red);margin:0 0 8px}
-.brands{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .32em;font:900 clamp(52px,8.6vw,150px)/.9 var(--display);text-transform:uppercase;margin:0}
+.gear-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
+.gear-photo{margin:0;position:relative}
+.gear-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:160px 6px 6px 6px}
+.gear-photo::after{content:"";position:absolute;left:-14px;bottom:-14px;width:46%;height:38%;border:3px solid var(--gold);border-radius:6px;z-index:-1}
+.gear{position:relative;isolation:isolate}
+.brands{display:flex;flex-direction:column;align-items:flex-start;font:900 clamp(56px,9vw,150px)/.88 var(--display);text-transform:uppercase;margin:0}
 .brands a,.brands span{text-decoration:none}
 .brands .amp{color:var(--gold);font-weight:700}
 .brands a{color:var(--red);text-decoration:underline;text-decoration-thickness:.06em;text-underline-offset:.08em}
@@ -159,6 +164,7 @@ nav.main a[aria-current]{color:var(--red)}
 
 /* reviews */
 .reviews{padding:clamp(70px,9vw,130px) 0;background:var(--snow)}
+.hall{width:100%;aspect-ratio:21/8;object-fit:cover;object-position:50% 70%;border-radius:8px;margin:0 0 22px}
 .rv{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;margin-top:10px}
 blockquote{margin:0}
 .rv .big{background:var(--paper);border-radius:8px;padding:clamp(28px,4vw,52px);border-top:6px solid var(--red)}
@@ -209,7 +215,7 @@ blockquote{margin:0}
   nav.main ul{flex-direction:column}
   .menu-btn{display:inline-block}
   .bar .call{display:none}
-  .logo-sec .wrap,.why .wrap,.fragrance .wrap,.rv,.kcc .wrap,.svc{grid-template-columns:1fr}
+  .gear-grid,.logo-sec .wrap,.why .wrap,.fragrance .wrap,.rv,.kcc .wrap,.svc{grid-template-columns:1fr}
   .site-foot .top{grid-template-columns:1fr 1fr}
   .site-foot .top>div:first-child{grid-column:1/-1}
 }
@@ -227,6 +233,7 @@ blockquote{margin:0}
   .dial{text-align:left}.dial .btns{display:none}
   .chips li{font-size:13px}
   .card{min-height:440px}
+  .hall{aspect-ratio:16/10}
   .sec-head{flex-direction:column;align-items:start}
   .shirt .badge{left:10px;bottom:-26px}
   .site-foot .top{grid-template-columns:1fr}
@@ -340,7 +347,7 @@ blockquote{margin:0}
     </div>
     <div class="svc">
       <a class="card tall" href="tel:+17809647513">
-        <img src="images/edmonton-highrise.webp" alt="Downtown Edmonton high-rise towers" width="1100" height="1375" loading="lazy">
+        <img src="images/commercial-carpet-cleaning-highrise.webp" alt="Klondike technician cleaning commercial carpet on an upper floor of a high-rise office" width="896" height="1200" loading="lazy">
         <span class="pin">Edmonton &amp; area</span>
         <div class="in">
           <h3>Commercial carpet cleaning</h3>
@@ -349,7 +356,7 @@ blockquote{margin:0}
         </div>
       </a>
       <a class="card" href="https://www.edmonton-carpet-cleaning.com/apartment-cleaning-services.html">
-        <img src="images/edmonton-condos.webp" alt="Edmonton apartment and condo towers" width="1400" height="856" loading="lazy">
+        <img src="images/apartment-condo-hallway-cleaning.webp" alt="Technician cleaning an apartment building hallway carpet with portable equipment" width="1376" height="768" loading="lazy">
         <div class="in">
           <h3>Apartment &amp; condo services</h3>
           <p>Mobile equipment that gets into multi-level apartments and condos where truck-mounts often have difficulty.</p>
@@ -361,10 +368,15 @@ blockquote{margin:0}
 </section>
 
 <section class="gear" aria-label="Our equipment">
-  <div class="wrap">
-    <p class="lead">We use…</p>
-    <p class="brands"><span>EDIC,</span> <span>Karcher</span> <span class="amp">&amp;</span> <a href="https://www.carpet-cleaning-equipment.net/rotovac-powerwand/" target="_blank" rel="noopener">Rotovac</a></p>
-    <p class="note">Commercial grade mobile equipment, designed to get the job done with a minimum of noise and clutter.</p>
+  <div class="wrap gear-grid">
+    <div>
+      <p class="lead">We use…</p>
+      <p class="brands"><span>EDIC,</span> <span>Karcher</span> <span><span class="amp">&amp;</span> <a href="https://www.carpet-cleaning-equipment.net/rotovac-powerwand/" target="_blank" rel="noopener">Rotovac</a></span></p>
+      <p class="note">Commercial grade mobile equipment, designed to get the job done with a minimum of noise and clutter.</p>
+    </div>
+    <figure class="gear-photo">
+      <img src="images/rotary-carpet-cleaning-office.webp" alt="Rotary carpet cleaning wand lifting dirt from office carpet, clean and dirty halves side by side" width="896" height="1200" loading="lazy">
+    </figure>
   </div>
 </section>
 
@@ -390,6 +402,7 @@ blockquote{margin:0}
       <h2 id="rv-h">Comments from Edmonton</h2>
       <p>From churches and homes across the city.</p>
     </div>
+    <img class="hall" src="images/church-hall-clean-carpet.webp" alt="Freshly cleaned carpet in a church fellowship hall" width="1376" height="768" loading="lazy">
     <div class="rv">
       <blockquote class="big">
         <span class="quote-mark" aria-hidden="true">“</span>
